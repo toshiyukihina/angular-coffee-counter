@@ -1,13 +1,3 @@
-"use strict"
-
-###*
-@ngdoc overview
-@name angularCounterApp
-@description
-angularCounterApp
-
-Main module of the application.
-###
 (->
   angular.module("angularCounterApp", [
     "ngAnimate"

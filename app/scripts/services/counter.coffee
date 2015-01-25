@@ -7,9 +7,9 @@
  # # Counter
  # Factory in the angularCounterApp.
 ###
-angular.module('angularCounterApp')
-  .factory 'Counter', ->
-
+angular.module("angularCounterApp").factory "Counter", [
+  () ->
+    
     class Counter
       constructor: (@value = 0) ->
       getValue: () =>
@@ -22,3 +22,5 @@ angular.module('angularCounterApp')
         return
 
     return Counter
+    
+]

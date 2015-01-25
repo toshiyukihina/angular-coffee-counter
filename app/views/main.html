@@ -1,4 +1,4 @@
-<p>Normal Counter</p>
-<button class="btn btn-primary" ng-click="increment()">Increment</button>
-<button class="btn btn-warning" ng-click="decrement()">Decrement</button>
+<p>{{counterType()}}</p>
+<button class="btn btn-primary" ng-click="counter.increment()">Increment</button>
+<button class="btn btn-warning" ng-click="counter.decrement()">Decrement</button>
 {{counter.getValue()}}

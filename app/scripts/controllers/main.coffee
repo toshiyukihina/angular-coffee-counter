@@ -1,24 +1,17 @@
-"use strict"
-
-###*
-@ngdoc function
-@name angularCounterApp.controller:MainCtrl
-@description
-# MainCtrl
-Controller of the angularCounterApp
-###
-
 angular.module("angularCounterApp").controller "MainCtrl", [
   "$scope"
   "Counter"
-  ($scope, Counter) ->
+  "ReverseCounter"
+  ($scope, Counter, ReverseCounter) ->
 
     angular.extend $scope,
-      counter: new Counter()
-      increment: () ->
-        $scope.counter.increment()
-      decrement: () ->
-        $scope.counter.decrement()
+      # Enable/Disable 'Counter' type here.
+      counter: new Counter(100)
+      #counter: new ReverseCounter(100)
+
+      counterType: () ->
+        return if $scope.counter instanceof ReverseCounter then return "ReverseCounter" else return "Counter"
 
     return
+
 ]
