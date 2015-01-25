@@ -18,6 +18,7 @@ module.exports = (grunt) ->
   appConfig =
     app: require("./bower.json").appPath or "app"
     dist: "dist"
+    test: require("./bower.json").testPath or "test"
 
   
   # Define the configuration for all the tasks
@@ -66,7 +67,10 @@ module.exports = (grunt) ->
         ]
 
       coffee:
-        files: ["<%= yeoman.app %>/scripts/{,*/}*.coffee"]
+        files: [
+          "<%= yeoman.app %>/scripts/{,*/}*.coffee"
+          "<%= yeoman.test %>/spec/{,*/}*.coffee"
+        ]
         tasks: [
           "coffee"
           "jshint"
@@ -382,6 +386,12 @@ module.exports = (grunt) ->
           src: ["**/*.coffee"]
           dest: "<%= yeoman.app %>/scripts"
           ext: ".js"
+        }, {
+          expand: true
+          cwd: "<%= yeoman.test %>/spec"
+          src: ["**/*.coffee"]
+          dest: "<%= yeoman.test %>/spec"
+          ext: ".js"
         }]
 
   grunt.registerTask "serve", "Compile then start a connect web server", (target) ->
@@ -411,6 +421,7 @@ module.exports = (grunt) ->
     "concurrent:test"
     "autoprefixer"
     "connect:test"
+    "coffee"
     "karma"
   ]
   grunt.registerTask "build", [
