@@ -1,3 +1,4 @@
+"use strict"
 
 ###*
 @ngdoc overview
@@ -8,7 +9,6 @@ angularCounterApp
 Main module of the application.
 ###
 (->
-  "use strict"
   angular.module("angularCounterApp", [
     "ngAnimate"
     "ngCookies"
